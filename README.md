@@ -51,7 +51,7 @@ Its purpose is to allow users to search for flights, make bookings, manage passe
 
 ![ERD](https://drive.google.com/uc?export=view&id=1V5g0pUB92cq_z69OPMH1VSaNmNy0bjEu)
 
-*Figure 1: ERD showing core relationships in the Airline Booking System.*
+*Figure 1: ERD showing relationships between users, flights, aircraft, bookings, and routes.*
 
 ---
 
