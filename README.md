@@ -55,6 +55,10 @@ Its purpose is to allow users to search for flights, make bookings, manage passe
 
 ---
 
+### Full Technical Specifications Document
+
+[Click here to view the full Technical Specifications Document (Google Docs)](https://docs.google.com/document/d/1oO3sRuN4kmkG-FW1-w6x9TuffKmaS_H59Avz9IdOdzY/edit?usp=sharing)
+
 ## Features
 
 - User registration and login  
