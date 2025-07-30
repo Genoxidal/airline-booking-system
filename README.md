@@ -1,100 +1,166 @@
-Technical Specifications Document
-1. Title Page
-Project Name: Airline Booking System
+# Technical Specifications Document: Airline Booking System API
 
-Version: 1.0.0
+## Project Overview
+- **Project Name:** Airline Booking System API  
+- **Date:** July 17, 2025  
+- **Version:** 1.0  
+- **Authors:** Ryan Oxales, Christian Nievera  
 
-Date: July 30, 2025
+---
 
-Author(s): Christian Nievera and Ryan Oxales
+## Table of Contents
+1. [Introduction](#1-introduction)  
+2. [Functional Requirements](#2-functional-requirements)  
+3. [Non-Functional Requirements](#3-non-functional-requirements)  
+4. [Visual Mockup (Figma)](#4-visual-mockup-figma)  
+5. [Data Requirements](#5-data-requirements)  
+6. [Technology Stack](#6-technology-stack)  
+7. [Development Team](#7-development-team)  
+8. [API Endpoints](#8-api-endpoints)  
+9. [Authentication and Authorization](#9-authentication-and-authorization)  
+10. [Error Handling](#10-error-handling)  
+11. [External Interface Requirements](#11-external-interface-requirements)  
+12. [Deployment](#12-deployment-to-be-detailed)  
+13. [Future Enhancements](#13-future-enhancements-to-be-detailed)  
+14. [Glossary](#14-glossary)  
+15. [Appendices](#15-appendices)  
 
-2. Table of Contents
-Introduction
+---
 
-Overall Description
+## 1. Introduction
+This document defines the technical specifications for the Airline Booking System, covering both frontend and backend components. It details the system’s architecture, features, and development strategy to ensure a robust and scalable booking platform.
 
-Visual Mockup Reference
+---
 
-Features
+## 2. Functional Requirements
 
-Functional Requirements
+### ✈️ Flight Search
+- Frontend UI for inputting origin, destination, dates, and number of passengers.
+- Display results with airline, flight number, departure/arrival times, duration, price, and seats.
+- Filters and sorting on search results.
+- API to query flights and return structured flight data.
 
-Non-Functional Requirements
+### 📘 Booking Management
+- User form for entering passenger info.
+- Seat selection (interactive seat map if available).
+- Booking summary page before confirmation.
+- Confirmation page with booking ID and itinerary.
+- Users can view, update, or cancel bookings.
 
-Data Requirements
+### 👤 User Management
+- Registration/login interfaces.
+- Profile management (view/update).
+- Password recovery.
+- Secure backend endpoints for user operations.
 
-External Interface Requirements
+### 💳 Payment Integration *(Placeholder)*
+- Secure form for payment input.
+- Payment status UI.
+- API integration with Stripe/PayPal.
 
-Glossary
+### 🛠️ Admin Functionalities *(Placeholder)*
+- Admin dashboard for managing flights, routes, aircraft, and users.
+- Admin CRUD operations via protected endpoints.
 
-Appendices
+---
 
-3. Introduction
-This document outlines the technical specifications for the "[Your Project Name Here]" project. It aims to provide a comprehensive overview of the system's design, functionality, and requirements to guide development and ensure all stakeholders are aligned.
+## 3. Non-Functional Requirements
 
-4. Overall Description
-[Provide a high-level overview of the system. What is its purpose? Who are the target users? What problem does it solve?]
+### 🚀 Performance
+- API response time: [X] ms for search, [Y] sec for booking.
+- Handle [N] concurrent users, [M] TPS.
 
-5. Visual Mockup Reference
-[Include links or references to any visual mockups, wireframes, or design prototypes. If you have an image, you can embed it here or link to it.]
+### 🔐 Security
+- JWT authentication + role-based access control.
+- SSL/TLS encryption, hashed passwords.
+- Protection against SQLi, XSS, CSRF.
 
-6. Features
-[List the key features of the application. For example:]
+### ✅ Usability
+- Intuitive, accessible (WCAG 2.1 AA), responsive frontend.
 
-User authentication (signup, login, logout)
+### 🧱 Reliability
+- Uptime target: 99.9%  
+- Error handling with user/developer-friendly messages.
 
-Data entry and management
+### 🧩 Maintainability & Portability
+- Modular code, testable components.
+- Portable deployment on cloud or on-prem.
 
-Reporting and analytics
+### 🌐 Compatibility
+- Frontend supports latest Chrome, Firefox, Edge, Safari.
 
-[Specific feature related to your project, e.g., "Calculate total order amount"]
+---
 
-7. Functional Requirements
-[Detail the specific functions the system must perform. Use a clear, unambiguous format. For example:]
+## 4. Visual Mockup (Figma)
+- **Figma Design Link:** [Insert Figma link here]
 
-FR-001: The system shall allow users to input an array of numerical values.
+---
 
-FR-002: The system shall calculate the sum of the numerical values in the input array.
+## 5. Data Requirements
 
-FR-003: The system shall return undefined if the input is not an array.
+### ✍️ Data Models
+- **User, Airport, Flight, Booking, Passenger, Payment, Ticket**
 
-FR-004: The system shall display the calculated total order amount to the user, formatted to two decimal places.
+Refer to [Detailed Schema](#detailed-database-schema) below.
 
-FR-005: The system shall provide an error message if the input is not a valid JSON array.
+---
 
-8. Non-Functional Requirements
-[Specify criteria that can be used to judge the operation of a system, rather than specific behaviors. For example:]
+### 💽 Detailed Database Schema (MySQL/PostgreSQL)
+**users**  
+- `user_id`, `first_name`, `last_name`, `email`, `password`, `mobile_number`, `role`, `created_on`, `updated_on`
 
-Performance: The system shall calculate the total for an array of 1000 items within 1 second.
+**airport_info**  
+- `airport_id`, `name`, `logo`, `email`, `mobile_number`, `address`
 
-Usability: The user interface shall be intuitive and easy to navigate for new users.
+**flights**  
+- `flight_id`, `from_location`, `to_location`, `departure_date`, `arrival_date`, `seats_available`, `price`
 
-Security: User data shall be protected through industry-standard encryption.
+**booking_details**  
+- `booking_id`, `user_id`, `flight_id`, `passengers`, `seat_number`, `total_amount`
 
-Scalability: The system shall be able to handle up to 100 concurrent users without significant performance degradation.
+**passenger_details**  
+- `passenger_id`, `booking_id`, `first_name`, `last_name`, `email`, `baggage_details`
 
-9. Data Requirements
-[Describe the data that will be stored, processed, and managed by the system. This might include data models, data types, and relationships.]
+**payment_details**  
+- `payment_id`, `booking_id`, `amount`, `payment_method`, `status`
 
-Order Item: Number (decimal, e.g., 10.50)
+**ticket_info**  
+- `ticket_id`, `user_id`, `passenger_id`, `class`, `fare`
 
-Order Array: Array of Numbers
+---
 
-10. External Interface Requirements
-[Detail any interfaces the system will have with external systems, APIs, or hardware.]
+### 🧠 Storage & Security Strategy
+- Encrypted sensitive data (SSL, at rest)
+- Read replicas, connection pooling
+- Regular backups, archiving
+- GDPR/CCPA-compliant handling of user data
 
-None (for the current order calculator example)
+---
 
-11. Glossary
-JSON: JavaScript Object Notation, a lightweight data-interchange format.
+## 6. Technology Stack
 
-Array: A data structure that stores a collection of elements.
+| Layer        | Technology                |
+|--------------|---------------------------|
+| Frontend     | HTML, CSS, JavaScript, Vue.js |
+| Backend      | Node.js + Express *(tentative)* |
+| Database     | PostgreSQL or MySQL       |
+| Authentication | JWT                      |
+| Payment      | Stripe or PayPal *(planned)* |
 
-Undefined: A primitive value in JavaScript indicating that a variable has not been assigned a value.
+---
 
-12. Appendices
-[Any supplementary information, diagrams, or additional resources.]
+## 7. Development Team
 
-[Link to source code repository]
+- Ryan Oxales  
+- Christian Nievera  
 
-[Link to deployment instructions]
+---
+
+## 8. API Endpoints (Overview)
+
+```http
+GET    /api/flights                  # Retrieve available flights  
+POST   /api/bookings                 # Create a new booking  
+GET    /api/bookings/:id             # View booking details  
+POST   /api/users/register           # User registration  
+POST   /api/users/login              # User login  
