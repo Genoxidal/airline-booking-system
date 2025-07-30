@@ -49,7 +49,7 @@ Its purpose is to allow users to search for flights, make bookings, manage passe
 
 ### Entity Relationship Diagram (ERD)
 
-![ERD](https://drive.google.com/uc?export=view&id=1V5g0pUB92cq_z69OPMH1VSaNmNy0bjEu)
+[Click here to view the ERD diagram](https://drive.google.com/file/d/1V5g0pUB92cq_z69OPMH1VSaNmNy0bjEu/view?usp=sharing)
 
 *Figure 1: ERD showing relationships between users, flights, aircraft, bookings, and routes.*
 
