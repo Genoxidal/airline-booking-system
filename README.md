@@ -45,7 +45,14 @@ Its purpose is to allow users to search for flights, make bookings, manage passe
 
 ---
 
-## Visual Mockup Reference
+### Figma Mockup Reference
+
+[Click here to view the Figma mockup](https://www.figma.com/design/YcA0Qnhb5qwnee3IA2UcNS/Side-Project---Flight-Booking-App?node-id=17-8&t=B69SAhhdJlS3Bble-1)
+
+### Trello board Reference
+
+[Click here to view the Trello board](https://trello.com/invite/b/688974c2898f2c1e937bca00/ATTId9f1557b4cba761d1d7e8c37603b72a59D439E3C/side-project-flight-booking-app
+)
 
 ### Entity Relationship Diagram (ERD)
 
